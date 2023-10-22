@@ -74,6 +74,11 @@ a {
   height: 500px;
 }
 
+.custom-image1 {
+  width: 100%;
+  height: 483px;
+}
+
 .counter {
   text-align: center;
   padding: 20px;
@@ -90,8 +95,8 @@ a {
 #bridge {
 	display: block;
 	margin: 0 auto;
-  background-image: url('/images/popust.png');
-	background-image: -webkit-image-set(url('/images/popust.png') 1x, url('/images/popust.png') 2x );
+  background-image: url('https://imgtr.ee/images/2023/10/22/92585d6d232f7008330cd7fb8b6d4e8c.png');
+	background-image: -webkit-image-set(url('https://imgtr.ee/images/2023/10/22/92585d6d232f7008330cd7fb8b6d4e8c.png') 1x, url('https://imgtr.ee/images/2023/10/22/92585d6d232f7008330cd7fb8b6d4e8c.png') 2x );
 	background-size: fit;
 	width: 100%;
   height: 100%;
