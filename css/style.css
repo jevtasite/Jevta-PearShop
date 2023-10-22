@@ -1,6 +1,11 @@
 html {
   scroll-behavior: smooth;
 }
+body { 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 .pear-green-bg {
   background-color: #60ac15; 
 }
@@ -109,6 +114,10 @@ a {
 }
 #bridgeContainer figcaption {   
   margin-top: 2rem; 
+}
+
+.container {
+  flex: 1 !important;
 }
 
 @media screen and (max-width:540px){

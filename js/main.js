@@ -125,3 +125,4 @@ bridge.addEventListener("touchmove", function (e) {
         handleDrawEvent(touch.clientX, touch.clientY);
     }
 }, false);
+
