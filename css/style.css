@@ -69,6 +69,43 @@ a {
   background: #60ac15 !important;
 }
 
+.custom-image {
+  width: 100%;
+  height: 500px;
+}
+
+.counter {
+  text-align: center;
+  padding: 20px;
+}
+.counter i {
+  font-size: 2.5rem;
+}
+
+.counter-bg {
+  width: 100%;
+  background-color: #60ac15;
+}
+
+#bridge {
+	display: block;
+	margin: 0 auto;
+  background-image: url('/images/popust.png');
+	background-image: -webkit-image-set(url('/images/popust.png') 1x, url('/images/popust.png') 2x );
+	background-size: fit;
+	width: 100%;
+  height: 100%;
+  cursor:  crosshair;
+  cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/circular-cursor.png) 53 53, crosshair;
+}
+#bridgeContainer { 
+  text-align: center;
+  font-family: Avenir, sans-serif;
+}
+#bridgeContainer figcaption {   
+  margin-top: 2rem; 
+}
+
 @media screen and (max-width:540px){
   .centerOnMobile {
     text-align:center

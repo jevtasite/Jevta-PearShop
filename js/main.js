@@ -4,6 +4,7 @@ function smoothScroll(target) {
     }, 800);
   }
 
+  //RANGE SLIDER
   const products = [
     { name: "Jabuka", price: 199 },
     { name: "Banana", price: 159 },
@@ -13,23 +14,21 @@ function smoothScroll(target) {
     { name: "Jagoda", price: 259 },
   ];
 
-  // Initialize the noUiSlider
   const priceRange = document.getElementById("price-range");
   const rangeValue = document.getElementById("range-value");
   noUiSlider.create(priceRange, {
-    start: [99, 259], // Initial "Od" and "Do" values
-    connect: true,     // Connect handles
+    start: [99, 259], 
+    connect: true,    
     range: {
       'min': 99,
       'max': 259
     },
   });
 
-  // Function to update the displayed products based on the price range
   function updateProducts(values) {
     const [fromValue, toValue] = values;
     const productContainer = document.getElementById("product-container");
-    productContainer.innerHTML = ""; // Clear the existing products
+    productContainer.innerHTML = ""; 
 
     products.forEach((product) => {
       if (product.price >= fromValue && product.price <= toValue) {
@@ -50,5 +49,85 @@ function smoothScroll(target) {
     rangeValue.textContent = `${fromValue} - ${toValue} RSD`;
   }
 
-  // Listen for changes to the range slider
   priceRange.noUiSlider.on("update", updateProducts);
+  
+  //COUNTER 
+  function startCounting(targetId, endValue, speed) {
+    let current = 0;
+    const target = document.getElementById(targetId);
+    const interval = setInterval(() => {
+        if (current >= endValue) {
+            clearInterval(interval);
+        } else {
+            current++;
+            target.textContent = current;
+        }
+    }, speed);
+}
+
+startCounting("experience", 10, 250);       
+startCounting("customers", 1000);     
+startCounting("shops", 15, 250);     
+
+//GREB GREB 
+var bridge = document.getElementById("bridge"),
+bridgeCanvas = bridge.getContext('2d'),
+brushRadius = (bridge.width / 100) * 5,
+img = new Image();
+
+if (brushRadius < 50) { brushRadius = 50 }
+
+img.onload = function(){  
+	bridgeCanvas.drawImage(img, 0, 0, bridge.width, bridge.height);
+}
+img.loc = './images/';
+img.filename = 'vegetable3.jpg';
+if (window.devicePixelRatio >= 2) {
+	var nameParts = img.filename.split('.');
+	img.src = img.loc + nameParts[0]+"-2x"+"."+nameParts[1];
+} else {
+	img.src = img.loc + img.filename;
+}
+
+function detectLeftButton(event) {
+    if ('buttons' in event) {
+        return event.buttons === 1;
+    } else if ('which' in event) {
+        return event.which === 1;
+    } else {
+        return event.button === 1;
+    }
+}
+
+function getBrushPos(xRef, yRef) {
+	var bridgeRect = bridge.getBoundingClientRect();
+    return {
+	  x: Math.floor((xRef-bridgeRect.left)/(bridgeRect.right-bridgeRect.left)*bridge.width),
+	  y: Math.floor((yRef-bridgeRect.top)/(bridgeRect.bottom-bridgeRect.top)*bridge.height)
+    };
+}
+      
+function drawDot(mouseX,mouseY){
+	bridgeCanvas.beginPath();
+    bridgeCanvas.arc(mouseX, mouseY, brushRadius, 0, 2*Math.PI, true);
+    bridgeCanvas.fillStyle = '#000';
+    bridgeCanvas.globalCompositeOperation = "destination-out";
+    bridgeCanvas.fill();
+}
+
+bridge.addEventListener("mousemove", function(e) {
+	var brushPos = getBrushPos(e.clientX, e.clientY);
+  var leftBut = detectLeftButton(e);
+  if (leftBut == 1) {
+		drawDot(brushPos.x, brushPos.y);
+  }
+}, false);
+
+bridge.addEventListener("touchmove", function(e) {
+    e.preventDefault();
+    var touch = e.targetTouches[0];
+    if (touch) {
+    var brushPos = getBrushPos(touch.pageX, touch.pageY);
+        drawDot(brushPos.x, brushPos.y);
+    }
+}, false);
