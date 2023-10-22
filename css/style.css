@@ -1,0 +1,85 @@
+html {
+  scroll-behavior: smooth;
+}
+.pear-green-bg {
+  background-color: #60ac15; 
+}
+
+a {
+  font-size: 18px;
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center;
+}
+
+.carousel-inner img {
+  object-fit: cover;
+  height: 600px;
+}
+
+.carousel-caption {
+  text-align: center; 
+  bottom: 0;
+  color: white;
+}
+
+.carousel-heading {
+  font-size: 50px; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  color: white; 
+}
+
+#products {
+  width: 100%;
+  height: 800px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-heading {
+  font-size: 50px; 
+  text-align: center;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
+}
+
+#contact {
+  width: 100%;
+  height: 300px; 
+  background-color: #e6e6e6; 
+}
+
+.product-image {
+  width: 170px; 
+  height: 150px; 
+  border: 2px solid #ccc; 
+}
+
+#range-value {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.noUi-horizontal .noUi-connect {
+  background: #60ac15 !important;
+}
+
+@media screen and (max-width:540px){
+  .centerOnMobile {
+    text-align:center
+  }
+}
+
+@media (max-width: 767px) {
+  #products {
+    height: 100%;
+  }
+  .product-heading {
+    margin-top: 20px;
+  }
+}
