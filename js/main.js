@@ -86,7 +86,7 @@ img.loc = './images/';
 img.filename = 'vegetable3.jpg';
 if (window.devicePixelRatio >= 2) {
     var nameParts = img.filename.split('.');
-    img.src = img.loc + nameParts[0] + "-2x" + "." + nameParts[1];
+    img.src = img.loc + nameParts[0] + "." + nameParts[1];
 } else {
     img.src = img.loc + img.filename;
 }
