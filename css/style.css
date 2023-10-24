@@ -120,6 +120,10 @@ a {
   flex: 1 !important;
 }
 
+.counter-s {
+  font-size: 30px;
+}
+
 @media screen and (max-width:540px){
   .centerOnMobile {
     text-align:center
