@@ -126,3 +126,63 @@ bridge.addEventListener("touchmove", function (e) {
     }
 }, false);
 
+//AJAX ZA KORPU
+let cart = {};
+
+function updateCartCount() {
+    const cartCounter = document.getElementById("cart-counter");
+    let totalQuantity = 0;
+    for (const item in cart) {
+        totalQuantity += cart[item];
+    }
+    cartCounter.textContent = `Kolica (${totalQuantity})`;
+}
+
+function addToCart(product) {
+    const productName = product.querySelector(".product-name").textContent;
+    if (cart[productName]) {
+        cart[productName] += 1;
+    } else {
+        cart[productName] = 1;
+    }
+    updateCartCount();
+    updateCartContent();
+}
+
+function updateCartContent() {
+    const cartContent = document.getElementById("cart-content");
+    cartContent.innerHTML = ""; 
+    for (const item in cart) {
+        const cartItem = document.createElement("div");
+        cartItem.textContent = item + " x" + cart[item];
+        cartContent.appendChild(cartItem);
+    }
+}
+
+const productContainer = document.getElementById("products");
+productContainer.addEventListener("click", function (event) {
+    if (event.target.classList.contains("add-to-cart")) {
+        const product = event.target.closest(".product-card");
+        if (product) {
+            addToCart(product);
+        }
+    }
+});
+
+const cartLink = document.getElementById("cart-link");
+const cartPopup = document.getElementById("cart-popup");
+
+cartLink.addEventListener("click", function () {
+    cartPopup.style.display = cartPopup.style.display === "none" ? "block" : "none";
+});
+
+// Function to clear the cart
+function clearCart() {
+  cart = {}; // Redefine cart as an empty object
+  updateCartCount(); // Update the cart count (set to 0)
+  updateCartContent(); // Clear the cart content
+}
+
+// Add an event listener to the "Clear Cart" button
+const clearCartButton = document.getElementById("clear-cart-button");
+clearCartButton.addEventListener("click", clearCart);

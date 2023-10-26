@@ -124,6 +124,21 @@ a {
   font-size: 30px;
 }
 
+#cart-popup {
+  position: absolute;
+  top: 100%; /* Position below the cart link */
+  left: 0;
+  width: 220px;
+  text-align: center;
+  background: white;
+  border: 1px solid #60ac15;
+  border-radius: 5px;
+  padding: 10px;
+  display: none; /* Initially hidden */
+  z-index: 1000; /* Set a high z-index value */
+}
+
+
 @media screen and (max-width:540px){
   .centerOnMobile {
     text-align:center
