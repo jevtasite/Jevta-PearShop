@@ -1,3 +1,4 @@
+// KURSNA LISTA
 var tableVisible = false;
 var toggleButton = document.getElementById("toggleButton");
 var currencyTable = document.getElementById("currencyTable");
@@ -32,7 +33,7 @@ function fetchCurrencyData() {
 }
 
 fetchCurrencyData();
-
+// VREME
 document.getElementById("fetchWeatherButton").addEventListener("click", function() {
     const apiKey = '3e6a33d24d194ef7880202008232210';
     const city = document.getElementById("cityInput").value;

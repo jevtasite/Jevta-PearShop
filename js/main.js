@@ -126,7 +126,7 @@ bridge.addEventListener("touchmove", function (e) {
     }
 }, false);
 
-//AJAX ZA KORPU
+//KORPA
 let cart = {};
 
 function updateCartCount() {
@@ -176,13 +176,11 @@ cartLink.addEventListener("click", function () {
     cartPopup.style.display = cartPopup.style.display === "none" ? "block" : "none";
 });
 
-// Function to clear the cart
 function clearCart() {
-  cart = {}; // Redefine cart as an empty object
-  updateCartCount(); // Update the cart count (set to 0)
-  updateCartContent(); // Clear the cart content
+  cart = {}; 
+  updateCartCount(); 
+  updateCartContent(); 
 }
 
-// Add an event listener to the "Clear Cart" button
 const clearCartButton = document.getElementById("clear-cart-button");
 clearCartButton.addEventListener("click", clearCart);
